@@ -9,7 +9,7 @@ export default function Countries() {
 
   const countries = useSelector((store) => store.filteredCountries)
   const currentPage = useSelector((store) => store.currentPage)
-  const countriesPerPage = 10
+  let countriesPerPage = 9
 
   const dispatch = useDispatch()
   
@@ -23,14 +23,22 @@ export default function Countries() {
   // Pagination
   
   
-  const indexOfLastCountry = currentPage * countriesPerPage
-  const indexOfFirsCountry = indexOfLastCountry - countriesPerPage
-  const currentCountries = currentPage === 1 ? countries.slice(indexOfFirsCountry, indexOfLastCountry - 1) :countries.slice(indexOfFirsCountry, indexOfLastCountry)
+  const indexOfLastCountry = currentPage === 1
+  ? currentPage * countriesPerPage + 1
+  : currentPage * countriesPerPage
 
+  const indexOfFirsCountry = currentPage === 1 ? 0 : currentPage * countriesPerPage - 11
+
+  const currentCountries = countries.slice(indexOfFirsCountry, indexOfLastCountry - 1)
   
 
   const pagination = (newPage) => {
     dispatch(handleCurrentPage(newPage))
+    if (newPage === 1) {
+      countriesPerPage = 9;
+    } else {
+      countriesPerPage = 10;
+    }
   }
 
 
