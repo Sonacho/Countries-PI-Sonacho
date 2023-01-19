@@ -1,0 +1,70 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    margin: 0 auto;
+    padding: 16px;
+}
+
+.input{
+    width:100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.select{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+}
+
+.button{
+    width: 100%;
+    background-color: #4caf50;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.selectedCountriesContainer{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    gap: 10px;
+    margin: 15px;
+}
+
+.selectedCountries{
+    display: flex;
+    align-items: center;
+    border:solid black;
+    border-width: 1px;
+    background-color: antiquewhite;
+    border-radius: 3px;
+    width: fit-content;
+    height: 20px;
+}
+.selectedCountriesButton{
+    background-color:indianred;
+    margin-left: 3px;
+    margin-right: 1px;
+    border: none;
+    cursor: pointer;
+}
+
+.error{
+    color: red;
+    font-style: italic;
+    font-size: small;
+}
+
