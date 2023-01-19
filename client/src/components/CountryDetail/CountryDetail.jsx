@@ -39,7 +39,7 @@ export default function CountryDetail() {
           </div>
         </div>
       </div>
-      {country.touristActivities && <div className={styles.activities}>
+      <div className={styles.activities}>
         <h2>Tourist Activity</h2>
           {country.touristActivities && country.touristActivities.map((act) => {
             return (
@@ -51,7 +51,8 @@ export default function CountryDetail() {
               </div>
             )
           })}
-    </div>}
+          {!country.touristActivities.length && <h2>There aren't tourist activities available :(</h2>}
+    </div>
   </div>
   )
 }
