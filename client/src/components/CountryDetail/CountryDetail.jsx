@@ -21,6 +21,12 @@ export default function CountryDetail() {
       history.push('/countries')
     }
 
+    if(!country.touristActivities){
+      return(
+        <div>Loading</div>
+      )
+    }
+
   return (
     <div>
       <div className={styles.containerDetail}>
@@ -51,7 +57,7 @@ export default function CountryDetail() {
               </div>
             )
           })}
-          {!country.touristActivities.length && <h2>There aren't tourist activities available :(</h2>}
+          {!country.touristActivities.length && <h2>There aren't tourist activities available</h2>}
     </div>
   </div>
   )
