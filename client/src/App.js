@@ -17,14 +17,13 @@ function App() {
   return (
     
     <>
-      <Route><NavBar/></Route>
-      <Route exact path ={'/'} component={LandingPage}/>
-      <Route exact path = {'/countries'}><SearchBar/></Route>
-      <Route exact path = {'/countries'}><FilterSort/></Route>
-      <Route exact path={'/countries'} ><Countries/></Route>
-      <Route path={'/countries/:id'} ><CountryDetail/></Route>
-      <Route exact path={'/add'} ><AddActivity/></Route>
-      {/* <Route path="*"><Redirect to="/" /></Route>   */}
+      <Switch>
+      <Route exact path ={'/'}><LandingPage/></Route>
+      <Route exact path = {'/countries'}><NavBar/><SearchBar/><FilterSort/><Countries/></Route>
+      <Route exact path={'/countries/:id'} ><NavBar/><CountryDetail/></Route>
+      <Route exact path={'/add'} ><NavBar/><AddActivity/></Route>
+      <Route path="/*"><Redirect to="/countries" /></Route>  
+      </Switch>
     </>
   );
 }
