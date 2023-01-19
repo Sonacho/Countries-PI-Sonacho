@@ -9,7 +9,7 @@ import AddActivity from './components/AddActivity/AddActivity';
 import SearchBar from './components/SearchBar/SearchBar';
 import FilterSort from './components/FilterSort/FilterSort';
 import axios from 'axios';
-axios.defaults.baseURL = 'http://localhost:3001'
+axios.defaults.baseURL = 'https://countries-pi-sonacho-production.up.railway.app/'
 
 function App() {
 
