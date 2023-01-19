@@ -15,11 +15,10 @@ export default function FilterSort() {
 
 
 
-  function handleAZPopulation(e){
+  async function handleAZPopulation(e){
     dispatch(AlphabeticalPopOrder(e.target.value))
     dispatch(handleCurrentPage(1))
     setAlphaPop(e.target.value)
-    document.getElementById('act').value = 'All'
   }
 
   function handleContinent(e){
@@ -29,15 +28,20 @@ export default function FilterSort() {
     }
     dispatch(handleCurrentPage(1))
     setContinent(e.target.value)
-    document.getElementById('act').value = 'All'
   }
 
-  function handleActivity(e){
+  async function handleActivity(e){
     dispatch(FilterByActivity(e.target.value))
     dispatch(handleCurrentPage(1))
-    document.getElementById('azpop').value = 'AZ'
-    document.getElementById('continent').value = 'All'
     setAct(e.target.value)
+  }
+
+  async function handleReload(e){
+    e.preventDefault(e)
+    await setAct('All')
+    await setAlphaPop('AZ')
+    await setContinent('All')
+    window.location.reload()
   }
 
   return (
@@ -71,6 +75,7 @@ export default function FilterSort() {
         })}
       </select>
       </span>
+      <button onClick={handleReload}>Reload Countries</button>
     </div>
   )
 }
